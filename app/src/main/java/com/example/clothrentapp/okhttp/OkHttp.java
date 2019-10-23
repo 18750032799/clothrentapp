@@ -1,35 +1,21 @@
 package com.example.clothrentapp.okhttp;
 
 
-
 import android.content.Context;
-
 import android.util.Log;
 
-
 import java.io.File;
-
 import java.net.URLEncoder;
-
 import java.util.HashMap;
-
 import java.util.List;
-
 import java.util.Map;
-
 import java.util.concurrent.TimeUnit;
 
-
 import okhttp3.Call;
-
 import okhttp3.FormBody;
-
 import okhttp3.MultipartBody;
-
 import okhttp3.OkHttpClient;
-
 import okhttp3.Request;
-
 import okhttp3.RequestBody;
 
 
@@ -287,17 +273,11 @@ public class OkHttp {
             }
 
         }
-
         RequestBody body = builder.build();
-
         Request request = new Request.Builder().url(url).post(body).build();
-
         Call call = getInstance().newCall(request);
-
         call.enqueue(callback);
-
         return call;
-
     }
 
 

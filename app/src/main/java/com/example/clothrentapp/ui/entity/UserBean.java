@@ -1,4 +1,4 @@
-package com.example.clothrentapp;
+package com.example.clothrentapp.ui.entity;
 
 public class UserBean {
 

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.clothrentapp.okhttp.Constant;
 import com.example.clothrentapp.okhttp.OkCallback;
 import com.example.clothrentapp.okhttp.OkHttp;
+import com.example.clothrentapp.ui.UploadImageActivity;
 import com.example.clothrentapp.ui.entity.UserBean;
 import com.example.clothrentapp.ui.user.UserActivity;
 
@@ -60,8 +61,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.btn_select_all_user)
-    public void onViewClicked() {
-        startActivity(new Intent(this, UserActivity.class));
+@OnClick({R.id.btn_select_all_user,R.id.btn_upload_img})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn_select_all_user:
+                startActivity(new Intent(this, UserActivity.class));
+                break;
+            case R.id.btn_upload_img:
+                startActivity(new Intent(this, UploadImageActivity.class));
+                break;
+        }
     }
 }

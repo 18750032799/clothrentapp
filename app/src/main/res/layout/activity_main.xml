@@ -30,4 +30,10 @@
         android:layout_height="wrap_content"
         android:text="查找所有用户" />
 
+    <Button
+        android:id="@+id/btn_upload_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="测试上传图片到服务器" />
+
 </LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qmui_config_color_white"
+    android:orientation="vertical"
+    tools:context=".lzh.ui.MainActivity">
+
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/tv_upload_image"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="打开图库/相机"
+        android:textColor="@color/qmui_config_color_gray_1"
+        android:textSize="22dp"
+        app:qmui_backgroundColor="@color/qmui_config_color_white"
+        app:qmui_borderColor="@color/qmui_config_color_red"
+        app:qmui_radius="40dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="目前只实现了选择一张图片的功能，适合选择头像的功能，日后有上传多张图片时可以使用GridView或者多行多列的RecycleView的布局显示
+这里使用到QMUI中的圆形图片，如果不需要就改成普通的ImageView就行"
+        />
+
+    <com.qmuiteam.qmui.widget.QMUIRadiusImageView
+        android:id="@+id/iv_upload_image"
+        app:qmui_is_circle="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        android:src="@mipmap/common_background"
+        />
+
+</LinearLayout>

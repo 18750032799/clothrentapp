@@ -3,6 +3,7 @@ package com.example.clothrentapp.ui;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -21,17 +22,17 @@ import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import okhttp3.OkHttpClient;
 
 public class UploadImageActivity extends BaseActivity {
 
     private static final int REQUEST_CODE_CHOOSE = 1;//定义请求码常量
-    private List<String> mSelected=new ArrayList<>();
+    private List<String> mSelected = new ArrayList<>();
     @BindView(R.id.tv_upload_image)
     QMUIRoundButton mTvUploadImage;
     @BindView(R.id.iv_upload_image)
@@ -72,15 +73,17 @@ public class UploadImageActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_CHOOSE && resultCode == RESULT_OK) {
             mSelected.addAll(Matisse.obtainPathResult(data));
-            Glide.with(mIvUploadImage.getContext()).load(mSelected.get(0)).into(mIvUploadImage);
-            OkHttp.upload(this, Constant.user_select_all, null, mSelected, new OkCallback() {
+            Log.i("tag",new File(mSelected.get(0)).getName());
+            OkHttp.upload(this, Constant.upload_img, null, mSelected, new OkCallback() {
                 @Override
                 public void onResponse(Result response) {
-
+                    CustomToast.showToast(UploadImageActivity.this, response.getMessage());
+                    Glide.with(mIvUploadImage.getContext()).load(mSelected.get(0)).into(mIvUploadImage);
                 }
 
                 @Override
                 public void onFailure(String state, String msg) {
+                    CustomToast.showToast(UploadImageActivity.this, msg);
 
                 }
             });

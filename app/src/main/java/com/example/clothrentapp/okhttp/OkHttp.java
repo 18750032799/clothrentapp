@@ -49,7 +49,7 @@ public class OkHttp {
     }
 
 
-    private static OkHttpClient getInstance() {
+    public static OkHttpClient getInstance() {
 
         return client == null ? init() : client;
 
